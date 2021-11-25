@@ -1,8 +1,8 @@
-var title = 10;
-var screens = 256;
-var screenPrice = 1280;
-var rollback = 5;
-var fullPrice = 2560;
-var adaptive = 300;
+var title = ;
+var screens = ;
+var screenPrice = ;
+var rollback = ;
+var fullPrice = ;
+var adaptive = ;
 console.log("ZXC гуль");
 alert("Блинк Ветра Ульта Z X пауза тычка C пауза");
