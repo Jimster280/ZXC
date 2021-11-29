@@ -1,9 +1,9 @@
-let title = "ZXC";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 500;
-let rollback = 57;
-let fullPrice = 2000;
-let adaptive = true;
+const title = "ZXC";
+const screens = "Простые, Сложные, Интерактивные";
+const screenPrice = 500;
+const rollback = 57;
+const fullPrice = 2000;
+const adaptive = true;
 console.log("ZXC гуль");
 // alert("Блинк Ветра Ульта Z X пауза тычка C пауза");
 
@@ -25,8 +25,6 @@ console.log(
     "рублей"
 );
 
-var newScreens = screens.toLowerCase();
-
-console.log(newScreens.split());
+console.log(screens.toLowerCase().split());
 
 console.log(fullPrice * (rollback / 100));
