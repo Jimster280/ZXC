@@ -1,3 +1,4 @@
+"use strict";
 const title = prompt("Как называется ваш проект?");
 const screens = prompt(
   "Какие типы экранов нужно разработать?",
@@ -10,18 +11,18 @@ const screenPrice = prompt(
 const rollback = 57;
 const adaptive = prompt("Нужен ли адаптив на сайте?");
 
-let service1 = prompt("Какой дополнительный тип услуги нужен?");
+const service1 = prompt("Какой дополнительный тип услуги нужен?");
 
-let servicePrice1 = prompt("Сколько это будет стоить");
+const servicePrice1 = prompt("Сколько это будет стоить");
 
-let service2 = prompt("Какой дополнительный тип услуги нужен?");
+const service2 = prompt("Какой дополнительный тип услуги нужен?");
 
-let servicePrice2 = prompt("Сколько это будет стоить");
+const servicePrice2 = prompt("Сколько это будет стоить");
 
 const fullPrice = screenPrice + servicePrice1 + servicePrice2;
 13;
 
-let servicePercentPrice = fullPrice - 1000;
+const servicePercentPrice = fullPrice - 1000;
 
 console.log("ZXC гуль");
 // alert("Блинк Ветра Ульта Z X пауза тычка C пауза");
