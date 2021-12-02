@@ -30,18 +30,19 @@ const asking = function () {
 };
 
 const getAllServicePrices = function () {
-  let sum = 0;
-
+  let sum;
   for (let i = 0; i < 2; i++) {
     if (i === 0) {
       service1 = prompt("Какой дополнительный тип услуги нужен?");
     } else if (i === 1) {
       service2 = prompt("Какой дополнительный тип услуги нужен?");
     }
-    sum += +prompt("Сколько это будет стоить");
+    sum = prompt("Сколько это будет стоить");
+    while (!isNumber(sum)) {
+      sum = prompt("Сколько это будет стоить");
+    }
   }
   return sum;
-  // return servicePrice1 + servicePrice2;
 };
 const showTypeOf = function (variable) {
   console.log(variable, typeof variable);
