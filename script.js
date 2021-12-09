@@ -1,5 +1,32 @@
 "use strict";
 
+const H1 = document.getElementsByTagName("h1");
+console.log(H1[0]);
+
+const buttons = document.getElementsByClassName("handler_btn");
+console.log(buttons[0]);
+console.log(buttons[1]);
+
+const buttonPlus = document.querySelector(".screen-btn");
+console.log(buttonPlus);
+
+const allElements1 = document.querySelectorAll(".percent");
+const allElements2 = document.querySelectorAll(".number");
+console.log(allElements1);
+console.log(allElements2);
+const matches = document.querySelectorAll("div.rollback input[type=range]");
+console.log(matches);
+const span = document.querySelectorAll("div.rollback span.range-value");
+console.log(span);
+const getInput = document.getElementsByClassName("total-input");
+console.log(getInput[0]);
+console.log(getInput[1]);
+console.log(getInput[2]);
+console.log(getInput[3]);
+console.log(getInput[4]);
+let blockScreens = document.querySelectorAll(".screen");
+console.log(blockScreens);
+
 const appData = {
   title: "",
   screens: [],
@@ -109,34 +136,6 @@ const appData = {
       console.log(appData.servicePercentPrice);
       console.log(appData.screens);
     }
-  },
-  getElements: function () {
-    const H1 = document.getElementsByTagName("h1");
-    console.log(H1[0]);
-
-    const buttons = document.getElementsByClassName("handler_btn");
-    console.log(buttons[0]);
-    console.log(buttons[1]);
-
-    const buttonPlus = document.querySelector(".screen-btn");
-    console.log(buttonPlus);
-
-    const allElements1 = document.querySelectorAll(".percent");
-    const allElements2 = document.querySelectorAll(".number");
-    console.log(allElements1);
-    console.log(allElements2);
-    const matches = document.querySelectorAll("div.rollback input[type=range]");
-    console.log(matches);
-    const span = document.querySelectorAll("div.rollback span.range-value");
-    console.log(span);
-    const getInput = document.getElementsByClassName("total-input");
-    console.log(getInput[0]);
-    console.log(getInput[1]);
-    console.log(getInput[2]);
-    console.log(getInput[3]);
-    console.log(getInput[4]);
-    let blockScreens = document.querySelectorAll(".screen");
-    console.log(blockScreens);
   },
 };
 
