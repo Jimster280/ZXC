@@ -92,15 +92,16 @@ const appData = {
     }
   },
   start: function () {
-    appData.asking();
-    appData.addPrices();
-    appData.getFullPrice();
-    appData.getServicePercentPrices();
-    appData.getTitle();
-    console.log("Назване:", appData.title);
-    console.log("Цена за все доп услуги:", appData.allServicePrices);
-    console.log("Полная стоймость:", appData.fullPrice);
-    appData.logger();
+    // appData.asking();
+    // appData.addPrices();
+    // appData.getFullPrice();
+    // appData.getServicePercentPrices();
+    // appData.getTitle();
+    // console.log("Назване:", appData.title);
+    // console.log("Цена за все доп услуги:", appData.allServicePrices);
+    // console.log("Полная стоймость:", appData.fullPrice);
+    // appData.logger();
+    appData.getElements();
   },
   logger: function () {
     for (let key in appData) {
@@ -110,20 +111,32 @@ const appData = {
     }
   },
   getElements: function () {
-    let H1 = document.getElementsByTagName("h1");
+    const H1 = document.getElementsByTagName("h1");
     console.log(H1[0]);
 
-    let buttons = document.getElementsByClassName("handler_btn");
-    console.log(buttons[(0, 1)]);
+    const buttons = document.getElementsByClassName("handler_btn");
+    console.log(buttons[0]);
+    console.log(buttons[1]);
 
-    let buttonPlus = document.querySelector(".screen-btn");
+    const buttonPlus = document.querySelector(".screen-btn");
     console.log(buttonPlus);
 
-    let allElements = document.querySelectorAll(".other-items");
-    let allElements1 = allElements.querySelectorAll(".percent");
-    let allElements2 = allElements.querySelectorAll(".number");
+    const allElements1 = document.querySelectorAll(".percent");
+    const allElements2 = document.querySelectorAll(".number");
     console.log(allElements1);
     console.log(allElements2);
+    const matches = document.querySelectorAll("div.rollback input[type=range]");
+    console.log(matches);
+    const span = document.querySelectorAll("div.rollback span.range-value");
+    console.log(span);
+    const getInput = document.getElementsByClassName("total-input");
+    console.log(getInput[0]);
+    console.log(getInput[1]);
+    console.log(getInput[2]);
+    console.log(getInput[3]);
+    console.log(getInput[4]);
+    let blockScreens = document.querySelectorAll(".screen");
+    console.log(blockScreens);
   },
 };
 
