@@ -3,9 +3,11 @@
 const H1 = document.getElementsByTagName("h1");
 console.log(H1[0]);
 
-const buttons = document.getElementsByClassName("handler_btn");
-console.log(buttons[0]);
-console.log(buttons[1]);
+const buttonFirst = document.getElementsByClassName("handler_btn")[0];
+const buttonSecond = document.getElementsByClassName("handler_btn")[1];
+
+console.log(buttonFirst);
+console.log(buttonSecond);
 
 const buttonPlus = document.querySelector(".screen-btn");
 console.log(buttonPlus);
@@ -18,12 +20,16 @@ const matches = document.querySelectorAll("div.rollback input[type=range]");
 console.log(matches);
 const span = document.querySelectorAll("div.rollback span.range-value");
 console.log(span);
-const getInput = document.getElementsByClassName("total-input");
-console.log(getInput[0]);
-console.log(getInput[1]);
-console.log(getInput[2]);
-console.log(getInput[3]);
-console.log(getInput[4]);
+const getInput = document.getElementsByClassName("total-input")[0];
+const getInput1 = document.getElementsByClassName("total-input")[1];
+const getInput2 = document.getElementsByClassName("total-input")[2];
+const getInput3 = document.getElementsByClassName("total-input")[3];
+const getInput4 = document.getElementsByClassName("total-input")[4];
+console.log(getInput);
+console.log(getInput1);
+console.log(getInput2);
+console.log(getInput3);
+console.log(getInput4);
 let blockScreens = document.querySelectorAll(".screen");
 console.log(blockScreens);
 
@@ -128,7 +134,6 @@ const appData = {
     // console.log("Цена за все доп услуги:", appData.allServicePrices);
     // console.log("Полная стоймость:", appData.fullPrice);
     // appData.logger();
-    appData.getElements();
   },
   logger: function () {
     for (let key in appData) {
