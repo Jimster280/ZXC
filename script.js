@@ -58,6 +58,7 @@ const appData = {
 
     if(!this.isError) {
       this.start();
+      this.goDisable();
     } else {
       alert('заполните все поля')
     }
@@ -65,7 +66,7 @@ const appData = {
   init: function () {
     this.addTitle();
     startButton.addEventListener("click", this.checkFunk.bind(this));
-    startButton.addEventListener("click", this.goDisable.bind(this));
+    // startButton.addEventListener("click", this.goDisable.bind(this));
     resetButton.addEventListener("click", this.reset.bind(this));
     buttonPlus.addEventListener("click", this.addScreenBlock.bind(this)); 
     this.countRollback(); 
@@ -79,8 +80,6 @@ const appData = {
     this.rollback = +matches.value;
   },
   reset: function () {
-    // let screens = document.querySelectorAll(".screen");
-    // if (screens[0] === screens[index])
     document.body.innerHTML = originalHtml;
   },
   addScreens: function () {
@@ -141,7 +140,7 @@ const appData = {
     // console.log("Полная стоймость:", appData.fullPrice);
     // appData.logger();
     console.log(appData);
-    appData.showResult();
+    this.showResult();
   },
   logger: function () {
     for (let key in appData) {
@@ -152,12 +151,12 @@ const appData = {
   },
   addPrices: function () {
     for (let screen of this.screens) {
-      appData.screenPrice += +screen.price;
+      this.screenPrice += +screen.price;
     }
     for (let key in this.servicesNumber) {
       this.servicePricesNumber += this.servicesNumber[key];
     }
-    for (let key in appData.servicesPercent) {
+    for (let key in this.servicesPercent) {
       this.servicePricesPercent += this.screenPrice * (this.servicesPercent[key] / 100)
     }
     
