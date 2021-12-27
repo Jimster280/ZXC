@@ -35,10 +35,19 @@ const appData = {
   goDisable: function() {
     let inputElement = document.querySelector('input[type=text]');
     const select = document.querySelector('select');
-    select.setAttribute("disabled", "disabled");
-    inputElement.setAttribute("disabled", "disabled");
+    select.removeAttribute("disabled");
+    inputElement.removeAttribute("disabled");
     startButton.style.display = 'none';
     resetButton.style.display = 'block';
+  },
+
+  unDisable: function() {
+    let inputElement = document.querySelector('input[type=text]');
+    const select = document.querySelector('select');
+    select.setAttribute("disabled", "false");
+    inputElement.setAttribute("disabled", "false");
+    startButton.style.display = 'block';
+    resetButton. style.display = 'none';
   },
   
   checkFunk: function() {
@@ -80,7 +89,40 @@ const appData = {
     this.rollback = +matches.value;
   },
   reset: function () {
-    document.body.innerHTML = originalHtml;
+    appData.resetVariables();
+     const checks = document.querySelectorAll('input[type=checkboc]');
+     checks.forEach((item) => {
+      item.checked = false;
+     });
+     const totalInput = document.querySelectorAll("total-input");
+     for (let i = 0; i < totalInput.length; i++) {
+       totalInput[i].value = '0';
+     };
+     let screen = document.querySelectorAll('.screen');
+     screen.forEach((item, index) => {
+      if (index) {
+        item.remove();
+      } else {
+        item.querySelector('select').selectIndex = 0;
+        item.querySelector('input[type=text]').value = 0;
+      };
+     });
+     matches.value = 0;
+     span.textContent = '0%';
+     this.unDisable(); 
+  },
+  resetVariables: function () {
+    this.screens = [];
+    this.screenPrice = 0;
+    this.adaptive = true;
+    this.rollback = 10;
+    this.servicePricesPercent = 0;
+    this.servicePricesNumber = 0;
+    this.fullPrice = 0;
+    this.servicePercentPrice = 0;
+    this.servicesPercent = {};
+    this.servicesNumber = {};
+    this.counterScreen = 0;
   },
   addScreens: function () {
     let screens = document.querySelectorAll(".screen");
