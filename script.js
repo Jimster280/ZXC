@@ -16,7 +16,6 @@ const fullTotalCount = document.getElementsByClassName("total-input")[3];
 const totalCountRollback = document.getElementsByClassName("total-input")[4];
 const resetButton = document.querySelector("#reset");
 let screens = document.querySelectorAll(".screen");
-const originalHtml = document.body.innerHTML;
 
 const appData = {
   title: "",
@@ -83,7 +82,6 @@ const appData = {
   init: function () {
     this.addTitle();
     startButton.addEventListener("click", this.checkFunk.bind(this));
-    // startButton.addEventListener("click", this.goDisable.bind(this));
     resetButton.addEventListener("click", this.reset.bind(this));
     buttonPlus.addEventListener("click", this.addScreenBlock.bind(this)); 
     this.countRollback(); 
@@ -138,13 +136,22 @@ const appData = {
       const select = screen.querySelector("select");
       const input = screen.querySelector("input");
       const selectName = select.options[select.selectedIndex].textContent;
-      this.counterScreen++
       this.screens.push({
         id: index,
         name: selectName,
         price: +select.value * +input.value,
       });
     });
+  },
+  getCounterScreen: function () {
+    let counter = 0;
+    screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => {
+      const input = screen.querySelector('input[type=text]');
+       counter += +input.value + counter ;
+       console.log(counter);
+    });
+    this.counterScreen = counter;
   },
   showResult: function() {
     total.value = this.screenPrice;
@@ -184,6 +191,7 @@ const appData = {
     this.addScreens();
     this.addServices();
     this.addPrices();
+    this.getCounterScreen();
     // appData.getServicePercentPrices();
     // console.log("Назване:", appData.title);
     // console.log("Цена за все доп услуги:", appData.allServicePrices);
