@@ -34,9 +34,16 @@ const appData = {
   isError: false,
   goDisable: function() {
     let inputElement = document.querySelector('input[type=text]');
-    const select = document.querySelector('select');
-    select.removeAttribute("disabled");
-    inputElement.removeAttribute("disabled");
+    screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => {
+      const select = screen.querySelector('select');
+      const input = screen.querySelector('input[type=text]');
+      select.setAttribute("disabled", 'true');
+      input.setAttribute("disabled", 'true');
+
+    });
+    buttonPlus.setAttribute("disabled", 'true');
+    inputElement.setAttribute("disabled", 'true');
     startButton.style.display = 'none';
     resetButton.style.display = 'block';
   },
@@ -44,10 +51,11 @@ const appData = {
   unDisable: function() {
     let inputElement = document.querySelector('input[type=text]');
     const select = document.querySelector('select');
-    select.setAttribute("disabled", "false");
-    inputElement.setAttribute("disabled", "false");
+    select.removeAttribute("disabled");
+    inputElement.removeAttribute("disabled");
     startButton.style.display = 'block';
     resetButton. style.display = 'none';
+    buttonPlus.removeAttribute("disabled");
   },
   
   checkFunk: function() {
@@ -89,23 +97,23 @@ const appData = {
     this.rollback = +matches.value;
   },
   reset: function () {
-    appData.resetVariables();
-     const checks = document.querySelectorAll('input[type=checkboc]');
+    this.resetVariables();
+     const checks = document.querySelectorAll('input[type=checkbox]');
      checks.forEach((item) => {
       item.checked = false;
      });
-     const totalInput = document.querySelectorAll("total-input");
+     const totalInput = document.querySelectorAll(".total-input");
      for (let i = 0; i < totalInput.length; i++) {
        totalInput[i].value = '0';
-     };
+     }
      let screen = document.querySelectorAll('.screen');
      screen.forEach((item, index) => {
       if (index) {
         item.remove();
       } else {
-        item.querySelector('select').selectIndex = 0;
+        item.querySelector('select').selectedIndex = 0;
         item.querySelector('input[type=text]').value = 0;
-      };
+      }
      });
      matches.value = 0;
      span.textContent = '0%';
@@ -115,7 +123,7 @@ const appData = {
     this.screens = [];
     this.screenPrice = 0;
     this.adaptive = true;
-    this.rollback = 10;
+    this.rollback = 0;
     this.servicePricesPercent = 0;
     this.servicePricesNumber = 0;
     this.fullPrice = 0;
